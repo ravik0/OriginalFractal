@@ -1,18 +1,22 @@
 public void setup() {
   size(400,400);
-  ogFractal(0,0,400);
-}
-public void draw() {
-  if (mousePressed) {
-    ogFractal(0,0,400);
-  }
+  ogFractal(100,100,200);
+  rectMode(CENTER);
 }
 public void ogFractal(int x, int y, int len) {
-  fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-  rect(x,y,len,len);
-  fill((int)(Math.random()*256),(int)(Math.random()*256),(int)(Math.random()*256));
-  ellipse(x+len/2,y+len/2,len,len);
+  ellipse(x,y,len,len);
+  ellipse(x+len,y,len,len);
+  ellipse(x,y+len,len,len);
+  ellipse(x+len,y+len,len,len);
+  /*rect((int)(x-len/2.95),(int)(y-len/2.94),(int)(len/1.44),(int)(len/1.44));
+  rect((int)(x+1.95*len/2.95),(int)(y-len/2.94),(int)(len/1.44),(int)(len/1.44));
+  rect((int)(x-len/2.95),(int)(y+1.95*len/2.94),(int)(len/1.44),(int)(len/1.44));
+  rect((int)(x+1.95*len/2.95),(int)(y+1.95*len/2.94),(int)(len/1.44),(int)(len/1.44));
+  abandoned, looks bad*/
   if (len >= 30) {
-    ogFractal(x+10,y+10,len-20);
+    ogFractal(x-len/5,y-len/5,(int)(len/2.5));
+    ogFractal(x+4*len/5,y-len/5,(int)(len/2.5));
+    ogFractal(x+4*len/5,y+4*len/5,(int)(len/2.5));
+    ogFractal(x-len/5,y+4*len/5,(int)(len/2.5));
   }
 }
